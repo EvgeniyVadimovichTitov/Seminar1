@@ -2,6 +2,6 @@
 int number = new Random().Next(100, 1000);
 Console.WriteLine($"Random number = {number}");
 
-string reductnumber = number.ToString();
+string newformatnumber = number.ToString();
 
-Console.WriteLine(reductnumber[1]);
+Console.WriteLine(newformatnumber[1]);
