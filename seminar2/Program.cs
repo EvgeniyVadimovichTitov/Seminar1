@@ -1,7 +1,8 @@
-﻿//Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа.
-int number = new Random().Next(100, 1000);
+﻿//Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
+int number = new Random().Next(1, 1000000000);
 Console.WriteLine($"Random number = {number}");
 
 string newformatnumber = number.ToString();
 
-Console.WriteLine(newformatnumber[1]);
+if (newformatnumber.Length >= 3) Console.WriteLine(newformatnumber[2]);
+else Console.WriteLine("В данном числе два рязряда, операция невозможна");
