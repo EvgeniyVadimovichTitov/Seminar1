@@ -1,8 +1,8 @@
 ﻿// Seminar3Task1 - Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
-Console.Write("Введите пятизначное число:");
+Console.WriteLine("Введите пятизначное число:");
 int number = Console.Read();
-
-char[] N = number.ToCharArray();
+string newformatnumber = number.ToString();
+char[] N = newformatnumber.ToCharArray();
 
 bool Method(char a, char b)
 {
