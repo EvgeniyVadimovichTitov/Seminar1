@@ -2,16 +2,28 @@
 Напишите программу, которая покажет количество чётных чисел в массиве.
 
 [345, 897, 568, 234] -> 2
-
-Seminar5Task2 - Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, 
-стоящих на нечётных позициях.
-
-[3, 7, 23, 12] -> 19
-
-[-4, -6, 89, 6] -> 0
-
-Seminar5Task2 - Задайте массив вещественных чисел. Найдите разницу между максимальным и 
-минимальным элементов массива.
-
-[3 7 22 2 78] -> 76
 */
+
+Console.Write("Введите длину массива: ");
+int len = int.Parse(Console.ReadLine()!);
+int[] massiv = new int[len];
+
+void CreateMassiv(int[] array)
+{
+    for (int i = 0; i < array.Length; array[i] = new Random().Next(100, 1000), i++) ;
+}
+
+void PrintMassiv(int[] array)
+{
+    for (int i = 0; i < array.Length; Console.Write($"{array[i]} "), i++) ;
+}
+
+CreateMassiv(massiv);
+PrintMassiv(massiv);
+
+int chetEl = 0;
+for (int j = 0; j < massiv.Length; j++)
+{
+    if (massiv[j] % 2 == 0) chetEl++;
+}
+Console.Write($"\n Колличество четных элементов в массиве: {chetEl}");
