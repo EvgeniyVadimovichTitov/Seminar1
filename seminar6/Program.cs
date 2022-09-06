@@ -2,8 +2,7 @@
 сколько чисел больше 0 ввёл пользователь.
 0, 7, 8, -2, -2 -> 2
 1, -7, 567, 89, 223-> 3 */
-
-Console.WtiteLine("Введите планируемое количесто чисел:");
+Console.WriteLine("Введите планируемое количесто чисел:");
 int count = int.Parse(Console.ReadLine()!);
 int[] array = new int[count];
 
@@ -11,7 +10,7 @@ void FillArray(int[] n)
 {
     for (int i = 0; i < n.Length; i++)
     {
-        Console.WtiteLine($"Введите {i + 1} число:");
+        Console.WriteLine($"Введите {i + 1} число:");
         n[i] = int.Parse(Console.ReadLine()!);
     }
 }
@@ -19,4 +18,13 @@ void FillArray(int[] n)
 FillArray(array);
 
 foreach (int el in array)
-    Console.Write(el);
+    Console.Write($"{el}, ");
+
+int FoundArray(int[] m)
+{
+    int sumMoreZero = 0;
+    for (int j = 0; j < m.Length; j++)
+        if (m[j] > 0) sumMoreZero++;
+    return sumMoreZero;
+}
+Console.Write($"\n{FoundArray(array)}");
