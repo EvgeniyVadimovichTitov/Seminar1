@@ -7,6 +7,7 @@ int k1 = int.Parse(ReadLine()!);
 Console.Write("\n");
 int b1 = int.Parse(ReadLine()!);
 
+
 Console.Write("Введите k2 и b2 для y = k2 * x + b2:");
 int k2 = int.Parse(ReadLine()!);
 Console.Write("\n");
