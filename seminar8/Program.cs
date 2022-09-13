@@ -1,51 +1,38 @@
-﻿/*Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
-Например, на выходе получается вот такой массив:
-01 02 03 04
-12 13 14 05
-11 16 15 06
-10 09 08 07*/
+﻿/*Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, 
+которая будет построчно выводить массив, добавляя индексы каждого элемента.
+Массив размером 2 x 2 x 2
+66(0,0,0) 25(0,1,0)
+34(1,0,0) 41(1,1,0)
+27(0,0,1) 90(0,1,1)
+26(1,0,1) 55(1,1,1)*/
 
-int[,] array = new int[4, 4];
-array[0, 0] = 1;
+int[,,] array = new int[2, 2, 2];
 
-void SpiralFillArray(int[,] massiv, int i = 0, int j = 0, int count = 2, int step = 1)
+
+void FillAndPrintArray(int[,,] massiv)
 {
-    if (j + step < massiv.GetLength(1) && j + step >= 0)
+    for (int i = 0; i < massiv.GetLength(2); i++)
     {
-        if (massiv[i, j + step] == 0)
+        for (int j = 0; j < massiv.GetLength(0); j++)
         {
-            massiv[i, j + step] = count;
-            count++;
-            SpiralFillArray(massiv, i, j + step, count, step);
-            return;
+            for (int g = 0; g < massiv.GetLength(1); g++)
+            {
+                int temp = new Random().Next(10, 100);
+                massiv[j, g, i] = temp;
+                for (int k = 0; k < g; k++)
+                {
+                    if (massiv[j, g - 1, i] == temp)
+                    {
+                        g--;
+                        break;
+                    }
+                    if (massiv[j, g - 1, i] != temp) k++;
+                }
+                Console.Write($"{massiv[j, g, i]}({j},{g},{i})");
+            }
+            Console.Write("\n");
         }
     }
-    if (i + step < massiv.GetLength(0) && i + step >= 0)
-    {
-        if (massiv[i + step, j] == 0)
-        {
-            massiv[i + step, j] = count;
-            count++;
-            SpiralFillArray(massiv, i + step, j, count, step);
-            return;
-        }
-
-    }
-    if (count != massiv.Length + 1) SpiralFillArray(massiv, i, j, count, step * (-1));
-}
-void PrintArray(int[,] massiv)
-{
-    for (int i = 0; i < massiv.GetLength(0); i++)
-    {
-        for (int j = 0; j < massiv.GetLength(1); j++)
-            Console.Write($"{massiv[i, j]} ");
-        Console.WriteLine();
-    }
-
 }
 
-SpiralFillArray(array);
-PrintArray(array);
-
-
-
+FillAndPrintArray(array);
