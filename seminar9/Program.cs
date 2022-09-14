@@ -8,12 +8,15 @@ int m = int.Parse(Console.ReadLine()!);
 int n = int.Parse(Console.ReadLine()!);
 int sum = 0;
 
-void SumEl(int start, int end, int summ)
+void SumEl(int start, int end, ref int sum)
 {
     if (start <= end)
-        SumEl(start + 1, end, summ += start);
-    Console.Write(summ);
+    {
+        sum += start;
+        SumEl(start + 1, end, ref sum);
+    }
 }
 
 
-SumEl(m, n, sum);
+SumEl(m, n, ref sum);
+Console.Write(sum);
